@@ -1,0 +1,20 @@
+<meta charset = "utf-8">
+<script type="text/javascript" language="javascript" src="jquery.3.3.1.js"></script>
+<body onload="revisar();">
+	<img src = "bcv_2.gif" id="esperando" style="display:block;">
+	<div id="respuesta"></div>
+</body>
+<script tyep = "text/javascript">
+	function revisar() {
+		$.ajax({
+			url: 'obtener.php',
+			success: function(respuesta) {
+				$("#esperando").hide(1000);
+				$("#respuesta").html(respuesta);
+			},
+			error: function() {
+				console.log("No se ha podido obtener la información");
+			}
+		});
+	}
+</script>
